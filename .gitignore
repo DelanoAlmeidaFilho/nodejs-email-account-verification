@@ -1,0 +1,15 @@
+.idea/
+.vscode/
+node_modules/
+build/
+temp/
+.env
+coverage
+ormconfig.json
+dist
+prisma/migrations/*
+prisma/dev.db
+prisma/dev.db-journal
+
+uploads/*
+!uploads/.gitkeep
