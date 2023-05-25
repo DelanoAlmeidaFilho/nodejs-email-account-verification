@@ -1,25 +1,25 @@
 <p align="center">
-  <a href="#-about"> About </a>&nbsp;&nbsp;&nbsp;
-  <a href="#-entity-relationship-diagram:">entity relationship diagram:</a>&nbsp;&nbsp;&nbsp;
-  <a href="#-Executing the Project">Executing the Project</a>&nbsp;&nbsp;&nbsp;
-  <a href="#-dependencies">dependencies</a>&nbsp;&nbsp;&nbsp;
+  <a href="#-about"> About </a>&nbsp;&nbsp;&nbsp;|
+  <a href="#-entity-relationship-diagram:">entity relationship diagram:</a>&nbsp;&nbsp;&nbsp;|
+  <a href="#-Executing the Project">Executing the Project</a>&nbsp;&nbsp;&nbsp;|
+  <a href="#-dependencies">dependencies</a>&nbsp;&nbsp;&nbsp;|
   <a href="#-resources">resources</a>&nbsp;&nbsp;&nbsp;
 </p>
 
-## About
+# About
 
 NodeJS project for user account verification
 
-## entity relationship diagram:
+# entity relationship diagram:
 
 ```mermaid
 erDiagram
     USERS ||--o| REFRESH_TOKENS : contain
     USERS ||--o| RESET_PASSWORD_TOKENS : contain
-    USERS ||--o| VERIFYEMAILTOKEN : contain
+    USERS ||--o| VERIFY_EMAIL_TOKENS : contain
 ```
 
-## Executing the Project
+# Executing the Project
 
 To run the project, use the following command:
 
@@ -28,7 +28,7 @@ To run the project, use the following command:
     npm run dev
 ```
 
-## dependencies
+# dependencies
 
 -   [Prisma](https://www.prisma.io/)
 -   [JWT](https://jwt.io)
@@ -40,7 +40,7 @@ To run the project, use the following command:
 -   [Handlebars](https://www.npmjs.com/package/handlebars)
 -   [nodemailer](https://www.npmjs.com/package/nodemailer)
 
-## resources
+# resources
 
 -   create user
 -   authentication
