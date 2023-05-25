@@ -1,11 +1,3 @@
-<p align="center">
-  <a href="#-about"> About </a>&nbsp;&nbsp;&nbsp;|
-  <a href="#-entity-relationship-diagram:">entity relationship diagram:</a>&nbsp;&nbsp;&nbsp;|
-  <a href="#-Executing the Project">Executing the Project</a>&nbsp;&nbsp;&nbsp;|
-  <a href="#-dependencies">dependencies</a>&nbsp;&nbsp;&nbsp;|
-  <a href="#-resources">resources</a>&nbsp;&nbsp;&nbsp;
-</p>
-
 # About
 
 NodeJS project for user account verification
