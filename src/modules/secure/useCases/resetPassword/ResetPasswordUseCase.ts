@@ -1,6 +1,8 @@
 import { hash } from 'bcryptjs';
+import { EtherealMail } from 'config/mail/EtherealMail';
 import { IUsersRepository } from 'modules/accounts/repository/IUsersRepository';
 import { IResetPasswordTokenRepository } from 'modules/secure/repository/IResetPasswordTokenRepository';
+import path from 'path';
 
 import { IDateProvider } from 'shared/container/providers/DateProvider/IDateProvider';
 import { AppError } from 'shared/error/AppError';
@@ -42,6 +44,43 @@ class ResetPasswordUseCase {
         );
 
         if (resetTokenExpired) {
+            await this.resetPasswordTokenRepository.deleteTokenByUserId(
+                user.id,
+            );
+
+            const expiresIn = this.dateProvider.addHours(2);
+
+            const newResetToken =
+                await this.resetPasswordTokenRepository.generate(
+                    user.id,
+                    expiresIn,
+                );
+
+            const forgotPasswordTemplate = path.resolve(
+                __dirname,
+                '..',
+                '..',
+                '..',
+                '..',
+                'views',
+                'forgot_password.hbs',
+            );
+
+            await EtherealMail.sendMail({
+                to: {
+                    name: user.name,
+                    email: user.email,
+                },
+                subject: '[My App] Reset Password',
+                templateData: {
+                    file: forgotPasswordTemplate,
+                    variables: {
+                        name: user.name,
+                        link: `http://localhost:3000/reset_password?token=${newResetToken}`,
+                    },
+                },
+            });
+
             throw new AppError('token expired');
         }
 
